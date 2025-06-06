@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cadastro</title>
+  <link rel="stylesheet" href="assets/css/datatables.css">
+  <link rel="stylesheet" href="assets/css/select2.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="assets/css/leaffet.css">
+  <link rel="stylesheet" href="leaflet.css">
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/datatables.js"></script>
+  <script src="assets/js/select2.js"></script>
+  <script src="assets/js/sweatalert.js"></script>
+  <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/leaffet.js"></script>
+  <script src="assets/js/chart.js"></script>
+  <script src="assets/js/cripto.js"></script>
+  <script src="leaflet.js"></script>
+  <script src="assets/js/visitantes.js"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Cadastro</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="tabela.html">Tabela</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <h1>cadastrar visitantes</h1>
+
+
+  <div class="input-group input-group-sm mb-2 w-25">
+    <span class="input-group-text" id="basic-addon1">NOME</span>
+    <input type="text" class="form-control " placeholder="nome" id="nome">
+  </div>
+
+  <div class="input-group input-group-sm mb-2 w-25">
+    <span class="input-group-text" id="basic-addon1">EMAIL</span>
+    <input type="email" class="form-control " placeholder="email" id="email">
+  </div>
+
+  <div class="input-group input-group-sm mb-2 w-25">
+    <span class="input-group-text" id="basic-addon1">SENHA</span>
+    <input type="password" min="0" class="form-control" placeholder="Senha" id="senha">
+  </div>
+
+  <div class="input-group input-group-sm mb-2 w-25">
+    <span class="input-group-text" id="basic-addon1">CPF</span>
+    <input type="number" min="0" class="form-control" placeholder="CPF" id="cpf">
+  </div>
+
+  <div class="input-group input-group-sm mb-2 w-25">
+    <span class="input-group-text" id="basic-addon1">DATA</span>
+    <input type="date" class="form-control" id="data">
+  </div>
+
+  <select class="form-select input-group-sm mb-2 w-25" aria-label="Default select example" id="setor">
+
+  </select>
+
+  <br>
+  <br>
+  <br>
+
+  <div class="form-floating input-group-sm mb-2 w-25">
+    <textarea class="form-control" placeholder="comente aqui" id="coment"></textarea>
+    <label for="floatingTextarea">motivo da visita</label>
+  </div>
+
+  <button type="button" class="btn btn-warning" onclick="cadastrarVisitante()">Cadastrar</button>
+
+
+
+
+
+
+
+
+
+
+  <script src="assets/js/functions.js"></script>
+</body>
+
+</html>
