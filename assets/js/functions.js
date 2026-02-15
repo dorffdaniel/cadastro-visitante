@@ -58,6 +58,15 @@ async function cadastrarVisitante() {
 }
 
 
+function mostrarImgemSelecionada() {
+    let imgPerfil = $("#imgPerfil")[0].files[0];
+
+    let imgTemp = URL.createObjectURL(imgPerfil);
+    $("#imgVisualizacao").attr('src', imgTemp);
+}
+
+
+
 $(document).ready(function () {
     showEstado();
 });

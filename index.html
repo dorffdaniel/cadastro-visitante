@@ -7,13 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>cadastro</title>
   <link rel="stylesheet" href="assets/css/datatables.css">
-  <link rel="stylesheet" href="assets/css/select2.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 
   <script src="assets/js/jquery.js"></script>
   <script src="assets/js/datatables.js"></script>
-  <script src="assets/js/select2.js"></script>
   <script src="assets/js/sweatalert.js"></script>
   <script src="assets/js/chart.js"></script>
   <script src="assets/js/cripto.js"></script>
@@ -43,40 +41,50 @@
   </header>
 
 
-  <main class="d-flex flex-column align-items-center">
-    <h1 class="mb-3">cadastrar visitantes</h1>
+  <main class="main">
 
+    <div class="cardCadastro">
+      <h1 class="mb-3">cadastrar visitantes</h1>
 
-    <div class="input-group input-group-sm mb-2 w-25">
-      <span class="input-group-text" id="basic-addon1">NOME</span>
-      <input type="text" class="form-control " placeholder="nome" id="nome">
+      <div class="input-group input-group-sm mb-2 w-50">
+        <span class="input-group-text" id="basic-addon1">NOME</span>
+        <input type="text" class="form-control " placeholder="nome" id="nome">
+      </div>
+
+      <div class="input-group input-group-sm mb-2 w-50">
+        <span class="input-group-text" id="basic-addon1">EMAIL</span>
+        <input type="email" class="form-control " placeholder="email" id="email">
+      </div>
+
+      <div class="input-group input-group-sm mb-2 w-50">
+        <span class="input-group-text" id="basic-addon1">SENHA</span>
+        <input type="password" min="0" class="form-control" placeholder="Senha" id="senha">
+      </div>
+
+      <div class="input-group input-group-sm mb-2 w-50">
+        <span class="input-group-text" id="basic-addon1">CPF</span>
+        <input type="number" min="0" class="form-control" placeholder="CPF" id="cpf">
+      </div>
+
+      <div class="input-group input-group-sm mb-2 w-50">
+        <span class="input-group-text" id="basic-addon1">DATA</span>
+        <input type="date" class="form-control" id="data">
+      </div>
+
+      <div class="input-group input-group-sm mb-2 w-50">
+        <input type="file" class="form-control" id="imgPerfil" onchange="mostrarImgemSelecionada()">
+      </div>
+
+      <select class="form-select input-group-sm mb-2 w-50" aria-label="Default select example" id="sexo">
+
+      </select>
+
+      <button type="button" class="btn btn-warning btnCad" onclick="cadastrarVisitante()">Cadastrar</button>
     </div>
 
-    <div class="input-group input-group-sm mb-2 w-25">
-      <span class="input-group-text" id="basic-addon1">EMAIL</span>
-      <input type="email" class="form-control " placeholder="email" id="email">
+    <div class="cardImg">
+      <img src="" alt="" id="imgVisualizacao">
     </div>
-
-    <div class="input-group input-group-sm mb-2 w-25">
-      <span class="input-group-text" id="basic-addon1">SENHA</span>
-      <input type="password" min="0" class="form-control" placeholder="Senha" id="senha">
-    </div>
-
-    <div class="input-group input-group-sm mb-2 w-25">
-      <span class="input-group-text" id="basic-addon1">CPF</span>
-      <input type="number" min="0" class="form-control" placeholder="CPF" id="cpf">
-    </div>
-
-    <div class="input-group input-group-sm mb-2 w-25">
-      <span class="input-group-text" id="basic-addon1">DATA</span>
-      <input type="date" class="form-control" id="data">
-    </div>
-
-    <select class="form-select input-group-sm mb-2 w-25" aria-label="Default select example" id="sexo">
-
-    </select>
-
-    <button type="button" class="btn btn-warning btnCad" onclick="cadastrarVisitante()">Cadastrar</button>
 
   </main>
 

@@ -1,3 +1,40 @@
 .btnCad {
-    margin-top: 1rem;
+    margin: .8rem;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ccc;
+    height: 94.1vh;
+}
+
+.cardCadastro {
+    display: grid;
+    place-items: center;
+    width: 40rem;
+    background-color: rgb(28, 53, 53);
+    border-radius: .8rem;
+}
+
+.cardCadastro h1 {
+    color: aliceblue;
+}
+
+/* .cardImg {
+    background: #f1f1f1;
+    width: 40rem;
+    height: 25rem;
+    display: grid;
+    place-items: center;
+    border-radius: .8rem;
+} */
+
+#imgVisualizacao {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 100%;
+    margin-left: .8rem;
+    object-fit: cover;
 }
