@@ -8,7 +8,6 @@
     <title>tabela</title>
     <link rel="stylesheet" href="assets/css/datatables.css">
     <link rel="stylesheet" href="assets/css/select2.css">
-    <link rel="stylesheet" href="assets/css/leaffet.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 
 
@@ -51,9 +50,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Cpf</th>
                     <th scope="col">Data</th>
-                    <th scope="col">info</th>
-                    <th scope="col">ver cpf</th>
-                    <th scope="col">delete</th>
+                    <th scope="col" class="text-center">Açoes</th>
                 </tr>
             </thead>
             <tbody id="listagem">
@@ -64,7 +61,7 @@
     </div>
 
 
-    <div class="modal" tabindex="-1" id="modalId">
+    <div class="modal" tabindex="-1" id="modalEdit">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -72,7 +69,24 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="resModal">
+                    <input type="hidden" id="idVisit">
 
+                    <div class="mb-2">
+                        <label for="nomeEdit">nome: </label>
+                        <input type="text" class="form-control" id="nomeEdit">
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="nomeEdit">cpf: </label>
+                        <input type="text" class="form-control" id="cpfEdit">
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="nomeEdit">data: </label>
+                        <input type="date" class="form-control" id="dataEdit">
+                    </div>
+
+                    <button class="btn btn-primary mt-3" onclick="alterarDadosVisitante()">salvar alteração</button>
 
                 </div>
 
@@ -112,7 +126,7 @@
 
 
 
-    <!-- <script src="assets/js/functions.js"></script> -->
+    <script src="assets/js/alerta.js"></script>
     <script src="assets/js/tabela.js"></script>
 </body>
 

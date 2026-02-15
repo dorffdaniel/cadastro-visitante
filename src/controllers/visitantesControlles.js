@@ -22,7 +22,7 @@ export async function cadastrar(req, res) {
 
         conn.query(sql, [nome, email, hash, cpf, data, sexo], (erro, result) => {
             if (erro) {
-                res.status(500).json({ erro: 'erro ao cadastrar visitante' });
+                return res.status(500).json({ erro: 'erro ao cadastrar visitante' });
             } else {
                 res.status(200).json({ msg: 'cadastrado com sucesso' });
             }
@@ -44,7 +44,7 @@ export async function getVisitantes(req, res) {
 
         conn.query(sql, (erro, result) => {
             if (erro) {
-                res.status(404).json({ erro: 'erro ao buscar visitantes' });
+                return res.status(404).json({ erro: 'erro ao buscar visitantes' });
             } else {
                 res.status(200).json({ msg: result });
             }
@@ -53,5 +53,50 @@ export async function getVisitantes(req, res) {
     } catch (error) {
         res.status(500).json({ erro: 'falha ao conectar com o banco' });
     }
+
+}
+
+export async function getVisitantesPorId(req, res) {
+
+    const id = req.params.id;
+    let sql = "SELECT * FROM visitante WHERE id = ?";
+
+    try {
+
+        conn.query(sql, [id], (erro, result) => {
+            if (erro) {
+                return res.status(400).json({ erro: 'erro ao buscar o visitante' })
+            } else {
+                res.status(200).json({ msg: result });
+            }
+
+        })
+
+    } catch (error) {
+        res.status(500).json({ erro: 'erro' })
+    }
+}
+
+export async function editarVisitante(req, res) {
+
+    let id = req.params.id;
+    const { nome, cpf, data } = req.body
+
+    if (!nome || !cpf || !data) {
+        return res.status(400).json({ erro: 'Dados obrigatórios não enviados' });
+    }
+
+    let sql = `UPDATE visitante 
+    SET nome= ?, cpf= ?, dataNasc=? 
+    WHERE id = ?`;
+
+    conn.query(sql, [nome, cpf, data, id], (erro, resul) => {
+
+        if (erro) {
+            return res.status(400).json({ erro: 'erro ao tentar editar' });
+        } else {
+            res.status(200).json({ msg: "Editado com Sucesso" });
+        }
+    })
 
 }

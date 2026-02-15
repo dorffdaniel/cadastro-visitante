@@ -26,7 +26,7 @@ async function cadastrarVisitante() {
         return;
     }
 
-    const path = url + '/cadastrar';
+    const path = `${url}/visitantes/cadastrar`;
     const dados = { nome, email, senha, cpf, data, sexo };
 
     try {
