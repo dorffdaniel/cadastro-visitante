@@ -1,4 +1,4 @@
-const url = ' http://127.0.0.1:3002';
+const url = 'http://127.0.0.1:3002';
 
 let estado = ['Masculino', 'Feminino', 'Outro', 'Prefiro nao responder'];
 

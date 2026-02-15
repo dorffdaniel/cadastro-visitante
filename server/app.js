@@ -50,6 +50,26 @@ app.post('/cadastrar', async (req, res) => {
 
 })
 
+app.get('/getVisitante', (req, res) => {
+
+    let sql = "SELECT * FROM visitante";
+
+    try {
+
+        conn.query(sql, (erro, result) => {
+            if (erro) {
+                res.status(404).json({ erro: 'erro ao buscar visitantes' });
+            } else {
+                res.status(200).json({ msg: result });
+            }
+        })
+
+    } catch (error) {
+        res.status(500).json({ erro: 'falha ao conectar com o banco' });
+    }
+
+})
+
 
 app.listen(porta, () => {
     console.log(`servidor rodando: http://localhost:${porta}/`)
