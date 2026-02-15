@@ -94,6 +94,34 @@ async function alterarDadosVisitante() {
 
 }
 
+async function apagarVisitante(idVisit) {
+
+
+    let path = `${url}/visitantes/apagarVisit/${idVisit}`;
+
+    try {
+
+        let conteudo = await fetch(path, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        let resp = await conteudo.json();
+
+        if (resp.msg) {
+            alerta(resp.msg, "Apagado", "success");
+            getVisitantes();
+        }
+
+
+    } catch (error) {
+        console.error("falha ao apagar Visitante ", error);
+    }
+
+}
+
 
 
 $(() => {

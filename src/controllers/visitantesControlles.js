@@ -73,7 +73,7 @@ export async function getVisitantesPorId(req, res) {
         })
 
     } catch (error) {
-        res.status(500).json({ erro: 'erro' })
+        res.status(500).json({ erro: 'erro ao conectar com banco' })
     }
 }
 
@@ -98,5 +98,27 @@ export async function editarVisitante(req, res) {
             res.status(200).json({ msg: "Editado com Sucesso" });
         }
     })
+
+}
+
+
+export async function apagarVisit(req, res) {
+
+    let id = req.params.id;
+
+    let sql = "DELETE FROM visitante WHERE id = ?";
+
+    try {
+        conn.query(sql, [id], (erro, result) => {
+            if (erro) {
+                return res.status(400).json({ erro: 'erro ao tentar apagar o visitante' })
+            } else {
+                res.status(200).json({ msg: 'Apagado com sucesso' });
+            }
+        })
+
+    } catch (error) {
+        res.status(500).json({ erro: 'erro ao conectar com o banco de dados' })
+    }
 
 }
