@@ -20,6 +20,17 @@ async function cadastrarVisitante() {
     let cpf = $('#cpf').val();
     let data = $('#data').val();
     let sexo = $('#sexo').val();
+    let img = $("#imgPerfil")[0].files[0];
+
+
+    let formDat = new FormData();
+    formDat.append("nome", nome);
+    formDat.append("email", email);
+    formDat.append("senha", senha);
+    formDat.append("cpf", cpf);
+    formDat.append("data", data);
+    formDat.append("sexo", sexo);
+    formDat.append("imagem", img);
 
     if (!nome.trim() || !email.trim() || !senha.trim() || !cpf.trim() || !data || sexo == '-1') {
         alerta("Erro", "Preencha todos os campos", "error");
@@ -27,27 +38,28 @@ async function cadastrarVisitante() {
     }
 
     const path = `${url}/visitantes/cadastrar`;
-    const dados = { nome, email, senha, cpf, data, sexo };
 
     try {
 
         const conteduo = await fetch(path, {
             method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(dados)
+            body: formDat
         });
 
         let resp = await conteduo.json();
 
         if (resp.erro) {
-            alerta("Erro", resp.erro, "error");
+            console.log("Erro", resp.erro, "error");
         }
 
-
         if (resp.msg) {
-            alerta("Cadastrado", resp.msg, "success");
             $("#nome, #email, #senha, #cpf, #data").val('');
             $("#sexo").val("-1");
+            /* setTimeout(() => {
+                alerta("Cadastrado", resp.msg, "success");
+            }, 100); */
+            alerta("Cadastrado", resp.msg, "success");
+            mostrarImgemSelecionada();
         }
 
 

@@ -7,7 +7,6 @@ function alerta(msg, titulo, icon) {
         text: msg,
         showConfirmButton: true,    // é aqui o botao
         confirmButtonText: 'OK',
-        timer: 1500,
         showClass: {
             popup: `
               animate__animated
