@@ -7,6 +7,7 @@
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
 <img src='img/design.png'>
+<img src='img/design2.png'>
 
 ## Status: 🚧 
 Em desenvolvimento
