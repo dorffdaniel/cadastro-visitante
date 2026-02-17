@@ -1,3 +1,5 @@
+
+
 const url = "http://127.0.0.1:3002";
 
 async function getVisitantes() {
@@ -48,9 +50,14 @@ async function editarVisitante(idVisit) {
 
         resp.msg.forEach(el => {
 
+            let img = "";
+
+            el.imgPerfil != null ? img = el.imgPerfil : img = "img/imagemVisitantes/user.png";
+
             let data = new Date(el.dataNasc);
             const dataInput = data.toISOString().split('T')[0];
 
+            $("#imgEdit").attr("src", img)
             $("#idVisit").val(el.id);
             $("#nomeEdit").val(el.nome);
             $("#cpfEdit").val(el.cpf);
@@ -128,6 +135,52 @@ async function apagarVisitante(idVisit) {
     }
 
 }
+
+function editarImagemPerfil() {
+
+    $("#selecionarImagem").click();
+
+}
+
+function imagemSelecionada() {
+    let imgSelec = $("#selecionarImagem")[0].files[0];
+
+    console.log(imgSelec)
+
+    if (imgSelec.name != '') {
+        let imgTemp = URL.createObjectURL(imgSelec);
+
+        $("#imgEdit").attr("src", imgTemp);
+        $("#btnSlavarImg").removeClass("d-none")
+
+    }
+
+}
+
+async function salvarImagemPerfil() {
+    let imgSelec = $("#selecionarImagem")[0].files[0];
+
+    let fomrDat = new FormData();
+    let id = $("#idVisit").val();
+
+    fomrDat.append("imagem", imgSelec);
+
+    let path = `${url}/visitantes/editarImagemVisitantes/${id}`;
+
+    let conteudo = await fetch(path, {
+        method: 'PUT',
+        body: fomrDat
+    })
+
+
+    let resp = await conteudo.json();
+    console.log(resp);
+
+}
+
+
+
+
 
 
 

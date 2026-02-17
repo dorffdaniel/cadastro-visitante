@@ -124,7 +124,6 @@ export async function editarVisitante(req, res) {
 
 }
 
-
 export async function apagarVisit(req, res) {
 
     let id = req.params.id;
@@ -142,6 +141,27 @@ export async function apagarVisit(req, res) {
 
     } catch (error) {
         return res.status(500).json({ erro: 'erro ao conectar com o banco de dados' })
+    }
+
+}
+
+export async function editarImagemVisitante(req, res) {
+
+    const foto = req.file ? `/img/imagemVisitantes/${req.file.filename}` : null;
+    let id = req.params.id;
+
+    let sql = "UPDATE visitante SET imgPerfil = ? WHERE id = ?";
+
+    try {
+        conn.query(sql, [foto, id], (erro, result) => {
+            if (erro) {
+                return res.status(400).json({ erro: "erro ao tentar editar a imagem do perfil" });
+            } else {
+                return res.status(200).json({ msg: "Imagem editada com sucesso" });
+            }
+        })
+    } catch (error) {
+        return res.status(500).json({ erro: "erro ao conectar com o banco de dados" });
     }
 
 }

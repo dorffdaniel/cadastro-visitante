@@ -68,6 +68,22 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="resModal">
+                    <div class="d-flex justify-content-center flex-column align-items-center">
+                        <img src="" alt="imagem do perfil visitante" id="imgEdit" class="mb-3">
+
+
+                        <input type="file" class="hidden" id="selecionarImagem" onchange="imagemSelecionada()">
+
+                        <div class="d-flex gap-4 mt-3 seperadorBtns">
+                            <button class="btn btn-warning" onclick="editarImagemPerfil()">editar
+                                foto</button>
+                            <button id="btnSlavarImg" class="btn btn-primary d-none"
+                                onclick="salvarImagemPerfil()">Salvar
+                                foto</button>
+                        </div>
+                    </div>
+
+
                     <input type="hidden" id="idVisit">
 
                     <div class="mb-2">

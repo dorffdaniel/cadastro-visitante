@@ -45,4 +45,20 @@
 .imgPerfil {
     width: 5rem;
     margin-right: .5rem;
+    border-radius: .5rem;
+}
+
+#imgEdit {
+    width: 10rem;
+    height: 9rem;
+    border-radius: .5rem;
+}
+
+.seperadorBtns button {
+    height: 3rem;
+    width: 9rem;
+}
+
+.hidden {
+    display: none;
 }
