@@ -38,3 +38,11 @@
     margin-left: .8rem;
     object-fit: cover;
 }
+
+
+/*Parte tabela visitante */
+
+.imgPerfil {
+    width: 5rem;
+    margin-right: .5rem;
+}

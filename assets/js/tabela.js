@@ -9,10 +9,17 @@ async function getVisitantes() {
 
     let mens = ``;
     resp.msg.forEach(el => {
+        let img = "";
+        if (el.imgPerfil != null) {
+            img = el.imgPerfil
+        } else {
+            img = "img/imagemVisitantes/user.png"
+        }
+
         let hoje = new Date(el.dataNasc);
         const formatoISO = hoje.toLocaleDateString('pt-BR')
         mens += `<tr>`;
-        mens += `<td> ${el.nome} </td>`;
+        mens += `<td> <img src="${img}" class="imgPerfil"> ${el.nome} </td>`;
         mens += `<td> ${el.cpf} </td>`;
         mens += `<td> ${formatoISO} </td>`;
         mens += `<td class="text-center"> 
