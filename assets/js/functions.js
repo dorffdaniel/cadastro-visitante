@@ -53,13 +53,11 @@ async function cadastrarVisitante() {
         }
 
         if (resp.msg) {
-            $("#nome, #email, #senha, #cpf, #data").val('');
-            $("#sexo").val("-1");
-            /* setTimeout(() => {
-                alerta("Cadastrado", resp.msg, "success");
-            }, 100); */
             alerta("Cadastrado", resp.msg, "success");
-            mostrarImgemSelecionada();
+
+            setTimeout(() => {
+                $("#nome, #email, #senha, #cpf, #data").val('');
+            }, 300);
         }
 
 
@@ -69,7 +67,7 @@ async function cadastrarVisitante() {
 
 }
 
-
+/* 
 function mostrarImgemSelecionada() {
     let imgPerfil = $("#imgPerfil")[0].files[0];
 
@@ -77,7 +75,7 @@ function mostrarImgemSelecionada() {
     $("#imgVisualizacao").attr('src', imgTemp);
 }
 
-
+ */
 
 $(document).ready(function () {
     showEstado();

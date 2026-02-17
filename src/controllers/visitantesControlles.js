@@ -30,9 +30,9 @@ export async function cadastrar(req, res) {
         return res.status(400).json({ erro: 'Nome , email, senha e cpf sao obrigratorios' })
     }
 
-    if (senha.length < 5) {
+    /* if (senha.length < 5) {
         return res.status(400).json({ erro: 'senha muito curta' });
-    }
+    } */
 
     try {
 
@@ -50,6 +50,7 @@ export async function cadastrar(req, res) {
             }
 
         });
+
 
     } catch (error) {
         return res.status(500).json({ erro: 'falha ao gerar hash da senha' });
